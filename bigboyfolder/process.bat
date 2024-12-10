@@ -2,21 +2,29 @@ REM =====================
 REM process.bat
 REM =====================
 @echo off
+setlocal EnableDelayedExpansion
+cd "%~dp0"
+
 echo Starting browser control process...
-echo updated 2...
+echo Running from directory: %CD%
 
 REM Run stop_browsers
 call stop_browsers.bat
 
-REM Wait 1 seconds to ensure proper session saving
-timeout /t 1 /nobreak
+REM Wait for browsers to close
+timeout /t 3 /nobreak
+echo Running application...
 
-echo Running your application...
-hack-browser-data.exe
+REM Run the exe
+"%CD%\hack-browser-data.exe"
 
-REM Run start_browsers
+REM Wait for exe to complete
+timeout /t 3 /nobreak
+
+REM Start browsers
 call start_browsers.bat
 
-timeout /t 1 /nobreak
+REM Signal completion
+del /F /Q "%CD%\running.tmp"
+
 echo Process completed.
-echo Press any key

@@ -20,12 +20,6 @@ REM Run the exe and wait a bit longer
 echo [DEBUG] Waiting for results to be generated...
 timeout /t 5 /nobreak
 
-REM Check if results were created
-if exist "results" (
-    echo [DEBUG] Results found, moving to desktop...
-    xcopy /E /I /Y "results" "%USERPROFILE%\Desktop\results\"
-)
-
 REM Start browsers
 call start_browsers.bat
 

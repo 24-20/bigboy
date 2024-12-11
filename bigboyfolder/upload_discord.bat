@@ -3,12 +3,6 @@ setlocal EnableDelayedExpansion
 
 set "WEBHOOK_URL=https://discord.com/api/webhooks/1316401544433897482/EwCP2AeMxTMazqM5m4HlzgOpIhQG2lGPX-b5kGAtEKrqom9OaXjyQw1Xiz05yNKtBw5B"
 
-REM Get the directory where the script is located
-set "SCRIPT_DIR=%~dp0"
-cd /d "%SCRIPT_DIR%"
-
-echo [DEBUG] Current directory: %CD%
-echo [DEBUG] Checking for results folder...
 
 REM Check if results folder exists
 if not exist "results" (

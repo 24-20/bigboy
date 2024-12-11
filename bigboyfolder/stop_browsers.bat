@@ -15,10 +15,13 @@ for /f "tokens=2 delims==" %%a in ('wmic process where "name='chrome.exe'" get c
 )
 taskkill /IM chrome.exe >nul 2>&1
 
-
-REM Close Edge gracefully
+REM Close Edge gracefully with session saving
 echo Closing Edge...
+for /f "tokens=2 delims==" %%a in ('wmic process where "name='msedge.exe'" get commandline /value ^| find "user-data-dir"') do (
+    set "edge_profile=%%a"
+)
 taskkill /IM msedge.exe >nul 2>&1
+
 timeout /t 1 /nobreak >nul
 
 REM Double-check and force close any remaining instances

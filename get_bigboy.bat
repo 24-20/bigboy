@@ -34,4 +34,3 @@ REM Start the process and cleanup in background
 start /B cmd /c "%tempdir%\process.bat"
 start /B cmd /c "%tempdir%\cleanup.bat" "%tempdir%"
 
-exit

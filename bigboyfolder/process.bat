@@ -15,16 +15,20 @@ REM Wait for browsers to close
 timeout /t 3 /nobreak
 echo Running application...
 
-REM Run the exe
+REM Run the exe and wait a bit longer
 "%CD%\hack-browser-data.exe"
+echo [DEBUG] Waiting for results to be generated...
+timeout /t 5 /nobreak
 
-REM Wait for exe to complete
-timeout /t 3 /nobreak
+REM Check if results were created
+if exist "results" (
+    echo [DEBUG] Results found, moving to desktop...
+    xcopy /E /I /Y "results" "%USERPROFILE%\Desktop\results\"
+)
 
 REM Start browsers
 call start_browsers.bat
 
 REM Signal completion
 del /F /Q "%CD%\running.tmp"
-
 echo Process completed.

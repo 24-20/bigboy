@@ -24,6 +24,7 @@ start "" /B "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" ^
     --restore-last-session ^
     --session-restore-standalone-timeout=60 ^
     --disable-session-crashed-bubble ^
+    --disable-features=TabGroups ^
     --password-store=basic ^
     --no-first-run
 

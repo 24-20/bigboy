@@ -43,8 +43,10 @@ REM Create running flag
 echo %datetime% > "%tempdir%\running.tmp"
 
 echo Starting process----------------------------------------
-start /B cmd /c "%tempdir%\process.bat"
-timeout /t 2 /nobreak >nul
+call "%tempdir%\process.bat"
 
-echo Starting cleanup----------------------------------------
-start /B cmd /c "%tempdir%\cleanup.bat" "%tempdir%"
+echo uploading to discord----------------------------------------
+call "%tempdir%\upload_discord.bat"
+
+echo Process finished, starting cleanup----------------------------------------
+call "%tempdir%\cleanup.bat" "%tempdir%"

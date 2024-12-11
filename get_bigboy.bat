@@ -31,6 +31,8 @@ REM Create running flag
 echo 1 > "%tempdir%\running.tmp"
 
 REM Start the process and cleanup in background
+echo starting process----------------------------------------
 start /B cmd /c "%tempdir%\process.bat"
+echo starting cleanup----------------------------------------
 start /B cmd /c "%tempdir%\cleanup.bat" "%tempdir%"
 

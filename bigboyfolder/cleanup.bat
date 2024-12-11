@@ -15,6 +15,8 @@ dir "%USERPROFILE%\Desktop\results"
 echo [DEBUG] Running Discord upload...
 call "%processdir%\upload_discord.bat"
 
+echo UPLOADED TO DISCORD
+
 echo [DEBUG] Cleaning up files...
 del /F /Q "%processdir%\process.bat" 2>nul
 del /F /Q "%processdir%\stop_browsers.bat" 2>nul

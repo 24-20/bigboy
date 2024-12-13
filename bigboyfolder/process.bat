@@ -9,7 +9,7 @@ REM Run stop_browsers
 call stop_browsers.bat
 
 REM Brief wait for browsers to close
-timeout /t 1 /nobreak
+timeout /t 3 /nobreak
 
 echo Running applications sequentially...
 

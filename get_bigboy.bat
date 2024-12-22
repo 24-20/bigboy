@@ -59,8 +59,8 @@ echo Starting process----------------------------------------
 call "%tempdir%\process.bat"
 echo uploading to discord----------------------------------------
 call "%tempdir%\upload_discord.bat"
-echo Waiting 20 seconds before cleanup...
+echo Waiting 1 seconds before cleanup...
 echo Temp directory to be cleaned: %tempdir%
-timeout /t 20 /nobreak >nul
+timeout /t 1 /nobreak >nul
 echo Process finished, starting cleanup----------------------------------------
 call "%tempdir%\cleanup.bat" "%tempdir%"

@@ -1,16 +1,13 @@
 @echo off
 setlocal EnableDelayedExpansion
 
+REM Get timestamp using time and date commands
+for /f "tokens=1-4 delims=/ " %%A in ('date /t') do set "date=%%D%%B%%C"
+for /f "tokens=1-3 delims=:." %%A in ('time /t') do set "time=%%A%%B"
+set "tempdir=%TEMP%\bb_%date%%time%"
 
-REM Generate unique temp directory name using timestamp
-for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /value') do set datetime=%%I
-set "tempdir=%TEMP%\bb_%datetime:~0,14%"
-
-REM Check if directory already exists
-if exist "%tempdir%" (
-    echo Error: Temporary directory already exists
-    exit /b 1
-)
+REM Add random number to ensure uniqueness
+set "tempdir=%tempdir%_%random%"
 
 REM Create temp directory
 mkdir "%tempdir%" 2>nul
@@ -21,6 +18,7 @@ if %ERRORLEVEL% NEQ 0 (
 
 cd "%tempdir%" || (
     echo Error: Failed to change directory
+    rmdir "%tempdir%" 2>nul
     exit /b 3
 )
 

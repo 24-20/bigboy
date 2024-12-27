@@ -1,15 +1,6 @@
 @echo off
 setlocal EnableDelayedExpansion
 
-net session >nul 2>&1
-if %errorlevel% == 0 (
-    echo Administrative privileges confirmed
-) else (
-    echo Failure: Administrative privileges required
-    echo Right-click on the script and select "Run as administrator"
-    pause
-    exit /B 1
-)
 
 REM Generate unique temp directory name using timestamp
 for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /value') do set datetime=%%I

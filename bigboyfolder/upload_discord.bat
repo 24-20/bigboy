@@ -10,9 +10,10 @@ if not exist "results" (
     exit /b 1
 )
 
-REM Create timestamp
-for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /value') do set datetime=%%I
-set "timestamp=%datetime:~0,8%_%datetime:~8,6%"
+REM Create timestamp using date and time commands
+for /f "tokens=1-4 delims=/ " %%A in ('date /t') do set "date=%%D%%B%%C"
+for /f "tokens=1-3 delims=:." %%A in ('time /t') do set "time=%%A%%B"
+set "timestamp=%date%_%time%"
 
 echo [DEBUG] Creating zip file...
 powershell -Command "Compress-Archive -Path results -DestinationPath 'results_%timestamp%.zip' -Force"
@@ -20,7 +21,6 @@ if %ERRORLEVEL% NEQ 0 (
     echo [ERROR] PowerShell compression failed!
     exit /b 1
 )
-
 REM Check if zip was created
 if not exist "results_%timestamp%.zip" (
     echo [ERROR] Failed to create zip file!
